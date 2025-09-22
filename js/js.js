@@ -863,7 +863,7 @@ function updateElements(attributes) {
             // Replace BLOG with TWITTER
             if (text === "BLOG") {
                 text = "TWITTER";
-                link = "https://x.com/bluwhale_X"; // your Twitter link
+                link = "https://x.com/BLUWHALEGROUP"; // your Twitter link
                 external = true;
             }
 
