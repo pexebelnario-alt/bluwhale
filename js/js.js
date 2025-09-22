@@ -1081,14 +1081,24 @@ function updateElements(attributes) {
     const media_logos = attributes["logos"].find(({ key }) => key === "media_logos");
     const media_logos_link_text_gradient = attributes["logos"].find(({ key }) => key === "media_logos_link_text_gradient");
 
-    if(media_logos_link_text_gradient.value) {
-        //.section-5 .container-box-2 .link a span
-        const linkTextElement = document.querySelector(`[data-key="logos:media_logos_link_text"]`);
-        if (linkTextElement) {
-            linkTextElement.style.cssText = `background: ${media_logos_link_text_gradient.value}; 
-            background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; color: transparent;`;
+if (media_logos_link_text_gradient.value) {
+    //.section-5 .container-box-2 .link a span
+    const linkTextElement = document.querySelector(`[data-key="logos:media_logos_link_text"]`);
+    if (linkTextElement) {
+        // Apply gradient text style
+        linkTextElement.style.cssText = `background: ${media_logos_link_text_gradient.value}; 
+            background-clip: text; 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+            color: transparent;`;
+
+        // Update the link href (parent <a> element)
+        const parentLink = linkTextElement.closest("a");
+        if (parentLink) {
+            parentLink.href = "https://doc.bluwhaleprotocol.com/";
         }
     }
+}
     if (media_logos.value) {
         const imgsElement = document.querySelector(`[data-key="logos:media_logos"]`);
         if (imgsElement) {
