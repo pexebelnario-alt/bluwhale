@@ -867,6 +867,12 @@ function updateElements(attributes) {
                 external = true;
             }
 
+                 if (text === "DOCS") {
+                text = "DOCS";
+                link = "https://doc.bluwhaleprotocol.com/"; // your Twitter link
+                external = true;
+            }
+
             linkElement.href = link;
             linkElement.target = external ? "_blank" : "_self";
             linkElement.classList.add("link");
