@@ -851,7 +851,7 @@ function updateElements(attributes) {
             // Replace WHITEPAPER with TELEGRAM
             if (text === "WHITEPAPER") {
                 text = "TELEGRAM";
-                link = "https://t.me/your_channel"; // your Telegram link
+                link = "https://t.me/bluwhaleprotocol"; // your Telegram link
                 external = true;
             }
              if (text === "NODES") {
@@ -863,7 +863,7 @@ function updateElements(attributes) {
             // Replace BLOG with TWITTER
             if (text === "BLOG") {
                 text = "TWITTER";
-                link = "https://twitter.com/your_handle"; // your Twitter link
+                link = "https://x.com/bluwhale_X"; // your Twitter link
                 external = true;
             }
 
