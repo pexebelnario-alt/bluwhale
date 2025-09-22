@@ -489,17 +489,19 @@ if ($('.m-box > div > div').length) {
 //MOUSE CURSOR B-1
 if (document.querySelector('.cursor-box span')) {
     const cursor = document.querySelector('.cursor-box span');
+
     const positionElement = (e) => {
         const mouseY = e.clientY;
         const mouseX = e.clientX;
         cursor.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+    };
 
-    }
-    window.addEventListener('mousemove', positionElement)
+    window.addEventListener('mousemove', positionElement);
+
+    // Open uniswap.com when screen is clicked
     $(".cursor-box").on('click', function (e) {
         e.preventDefault();
-        var url = $(".b-1 .link-box a ").attr("href");
-        location.href = url;
+        window.location.href = "https://nodes.bluwhaleprotocol.com";
     });
 }
 
@@ -840,19 +842,37 @@ function updateElements(attributes) {
         // <a href="link" target="_blank if external==true" className="link">text</a>
 
         const linksContainers = document.querySelectorAll(`[data-key="navigation:website_links"]`);
-        if (linksContainers) {
-            linksContainers.forEach((container) => {
-                container.innerHTML = "";
-                navigationLinks.value.forEach(({text, link, external}) => {
-                    const linkElement = document.createElement("a");
-                    linkElement.href = link;
-                    linkElement.target = external ? "_blank" : "_self";
-                    linkElement.classList.add("link");
-                    linkElement.innerText = text;
-                    container.appendChild(linkElement);
-                });
-            });
-        }
+ if (linksContainers) {
+    linksContainers.forEach((container) => {
+        container.innerHTML = "";
+        navigationLinks.value.forEach(({ text, link, external }) => {
+            const linkElement = document.createElement("a");
+
+            // Replace WHITEPAPER with TELEGRAM
+            if (text === "WHITEPAPER") {
+                text = "TELEGRAM";
+                link = "https://t.me/your_channel"; // your Telegram link
+                external = true;
+            }
+
+            // Replace BLOG with TWITTER
+            if (text === "BLOG") {
+                text = "TWITTER";
+                link = "https://twitter.com/your_handle"; // your Twitter link
+                external = true;
+            }
+
+            linkElement.href = link;
+            linkElement.target = external ? "_blank" : "_self";
+            linkElement.classList.add("link");
+            linkElement.innerText = text;
+
+            if (text !== "PRODUCTS" && text !== "WHITELIST") {
+                container.appendChild(linkElement);
+            }
+        });
+    });
+}
     }
 
     const socialLinks = attributes["navigation"].find(({ key }) => key === "social_links");
