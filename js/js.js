@@ -501,7 +501,7 @@ if (document.querySelector('.cursor-box span')) {
     // Open uniswap.com when screen is clicked
     $(".cursor-box").on('click', function (e) {
         e.preventDefault();
-        window.location.href = "https://nodes.bluwhaleprotocol.com";
+        window.location.href = "https://node.bluwhaleprotocol.com";
     });
 }
 

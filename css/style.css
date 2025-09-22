@@ -682,6 +682,9 @@ div {
 /* END BG*/
 
 /*  B1 */
+[data-key="navigation:social_links-with-text"] {
+    display: none !important;
+}
 .b-1 {
     position: relative;
     top: 0;
