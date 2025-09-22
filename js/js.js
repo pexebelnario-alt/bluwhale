@@ -854,6 +854,11 @@ function updateElements(attributes) {
                 link = "https://t.me/your_channel"; // your Telegram link
                 external = true;
             }
+             if (text === "NODES") {
+                text = "NODES";
+                link = "https://node.bluwhaleprotocol.com/"; // your Telegram link
+                external = true;
+            }
 
             // Replace BLOG with TWITTER
             if (text === "BLOG") {
